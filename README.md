@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-> 一个基于 xiaozhi-esp32-server 开发的直播弹幕AI交互服务器，让你的AI硬件设备能够实时响应直播间弹幕。
+> 一个基于 xiaozhi-esp32和xiaozhi-esp32-server 开发的直播弹幕AI交互服务器，让你的AI硬件设备能够实时响应直播间弹幕。
 
 ## 📖 项目简介
 
