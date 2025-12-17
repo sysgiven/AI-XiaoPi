@@ -1,0 +1,71 @@
+{
+  // 配置更改后重启才能生效
+  "app": {
+    "general": {
+      // 是否隐藏控制台
+      "hideConsole": false,
+      // 显示窗体
+      "showWindow": false     
+    },
+    "network": {
+      "proxy": {
+        // 系统代理端口
+        "port": 8827,
+        // 是否启用系统代理,若设置为false 则需要在程序手动指定代理地址
+        "enabled": true,
+        // 上游代理地址，例如开启了系统代理，但是需要将其他无关请求转发到VPN工具中,例如:127.0.0.1:11223,不要带http://
+        "upstreamAddress": ""
+      },
+      "websocket": {
+        // Websocket监听端口
+        "listenPort": 8888,
+        // true:监听在0.0.0.0，接受任意Ip连接，false:监听在127.0.0.1，仅接受本机连接
+        "listenAny": true
+      }
+    },
+    "filtering": {
+      // 过滤Websocket数据源进程,可用','进行分隔，程序将会监听以下进程的弹幕信息
+      "processFilter": "直播伴侣,douyin,chrome,msedge,QQBrowser,360se,firefox,2345explorer,iexplore",
+      // 开启内置的域名过滤，设置为false会解包所有https请求，cpu占用很高，建议在无法获取弹幕数据时调整
+      "hostNameEnabled": true,
+      // 已知的弹幕域名列表 ','分隔  用作过滤规则中，凡是webcast开头的域名程序都会自动列入白名单
+      "hostNameList": "",
+      // 要进行过滤的Web房间ID，多个使用','分隔，根据缓存来过滤的，直播伴侣不支持
+      "webRoomIds": ""
+    },
+    "barrage": {
+      // 在控制台输出弹幕
+      "printEnabled": true,
+      // 要在控制台打印的弹幕类型,多个使用','分隔，(空代表不过滤) 1[普通弹幕]，2[点赞消息]，3[进入直播间]，4[关注消息]，5[礼物消息]，6[统计消息]，7[粉丝团消息]，8[直播间分享]，9[下播]
+      "printFilter": "",
+      // 要推送的弹幕消息类型,多个使用','分隔，同上
+      "pushFilter": "",
+      // 弹幕文件日志
+      "barrageFileLog": false,
+      // 要日志记录的弹幕消息类型,多个使用','分隔，同上
+      "logFilter": "1,2,4,5,6,7,8",
+      //轮询配置
+      "polling": {
+        // 强制启用轮询模式获取弹幕 (对于容易断开连接或者更加追求稳定的直播间，可以启用这个开关，虽然响应速度不如WebSocket，但是绝对稳定!)
+        "enabled": false,
+        // 弹幕轮询间隔，当 forcePolling 为 true 时生效 (毫秒，1000毫秒=1秒，不建议小于1000毫秒，太小可能会被封IP，值越小，弹幕流越丝滑，对于观众多的直播间可以改小)
+        "interval": 3000,
+        // 禁用直播页浏览器脚本缓存 (如果需要确保脚本每次能够正常匹配替换，则启用它，可能会损失一定的页面加载速度)
+        "disableScriptCache": false
+      }
+    },
+    "liveCompanion": {
+      // 直播伴侣exe文件位置(除非程序找不到，否则请留空)
+      "path": "",
+      // 直播伴侣进程代理开关
+      "hookEnabled": false,
+      // 进入直播间自动暂停播放
+      "autoPause": true
+    },
+    
+    "comPort": {
+      // 指定要发送的COM串口 格式:'COM1:9600' 代表用COM1发送，波特率9600，若不需要使用串口抄送服务请留空，(启用后程序会自动生成过滤器模板文件到 scripts/comPortFilter.js)
+      "config": ""
+    }
+  }
+}

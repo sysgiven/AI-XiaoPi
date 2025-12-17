@@ -1,0 +1,6 @@
+-- 添加系统功能菜单配置参数
+delete from `sys_params` where param_code = 'system-web.menu';
+
+-- 添加系统功能菜单配置参数
+INSERT INTO `sys_params` (id, param_code, param_value, value_type, param_type, remark) VALUES 
+(600, 'system-web.menu', '{"features":{"voiceprintRecognition":{"name":"feature.voiceprintRecognition.name","enabled":false,"description":"feature.voiceprintRecognition.description"},"voiceClone":{"name":"feature.voiceClone.name","enabled":false,"description":"feature.voiceClone.description"},"knowledgeBase":{"name":"feature.knowledgeBase.name","enabled":false,"description":"feature.knowledgeBase.description"},"mcpAccessPoint":{"name":"feature.mcpAccessPoint.name","enabled":false,"description":"feature.mcpAccessPoint.description"},"vad":{"name":"feature.vad.name","enabled":true,"description":"feature.vad.description"},"asr":{"name":"feature.asr.name","enabled":true,"description":"feature.asr.description"}},"groups":{"featureManagement":["voiceprintRecognition","voiceClone","knowledgeBase","mcpAccessPoint"],"voiceManagement":["vad","asr"]}}', 'json', 1, '系统功能菜单配置');
