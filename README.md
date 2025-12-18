@@ -1,13 +1,13 @@
-# 小皮AI直播机器人开源服务器 (XiaoPi)
+# 小皮AI直播机器人 硬件+私有服务器解决方案 (XiaoPi)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-> 一个基于 xiaozhi-esp32和xiaozhi-esp32-server 开发的直播弹幕AI交互服务器，让你的AI硬件设备能够实时响应直播间弹幕。
+> 一个基于 xiaozhi-esp32和xiaozhi-esp32-server 开发的AI直播机器人，让你的AI硬件设备能够实时响应直播间弹幕。
 
 ## 📖 项目简介
 
-小皮AI直播机器人开源服务器(XiaoPi)是一个将直播弹幕与AI硬件语音交互结合的解决方案。它能够：
+小皮AI直播机器人(XiaoPi)是一个将直播弹幕与AI硬件语音交互结合的解决方案。它能够：
 
 - 📺 实时接收直播间弹幕消息
 - 🤖 使用大语言模型(LLM)生成智能回复
