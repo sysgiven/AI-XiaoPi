@@ -96,3 +96,5 @@ node_modules/
 
 # pyenv
 .python-version
+PROJECT_STRUCTURE.md
+REFACTOR_SUMMARY.md

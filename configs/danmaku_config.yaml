@@ -1,0 +1,115 @@
+# 弹幕服务配置文件
+# 基于xiaozhi-esp32-server的config.yaml
+
+# #####################################################################################
+# #############################弹幕服务专用配置########################################
+danmaku:
+  # 抖音直播间ID
+  room_id:
+
+  # 工作模式配置（三选一）
+  # 模式1: 模拟模式 - 用于开发测试，自动生成模拟弹幕
+  # 模式2: 代理模式 - 使用 DouyinBarrageGrab 获取真实弹幕（推荐）
+  # 模式3: 直连模式 - 直接连接抖音（需要自行实现协议）
+
+  # 是否使用模拟数据（开发测试用）
+  # true: 使用模拟弹幕数据，无需真实直播间
+  # false: 使用真实弹幕源（代理模式或直连模式）
+  use_mock: false
+
+  # 是否使用 DouyinBarrageGrab 代理模式（推荐）
+  # true: 连接到 DouyinBarrageGrab 获取弹幕（需要先运行 DouyinBarrageGrab）
+  # false: 使用直连模式（需要自行实现抖音协议）
+  use_proxy: true
+
+  # DouyinBarrageGrab WebSocket 服务器地址
+  # DouyinBarrageGrab 默认在 ws://127.0.0.1:8888 提供弹幕服务
+  proxy_ws_url: "ws://127.0.0.1:8888"
+
+  # WebSocket服务器配置（用于硬件设备连接）
+  ws_host: 0.0.0.0
+  ws_port: 8001
+
+  # #####################################################################################
+  # #############################弹幕流量控制配置#######################################
+  # 在弹幕密集时，避免所有弹幕都处理导致播放卡顿
+
+  # 是否启用流量控制（强烈推荐开启）
+  # true: 启用流控，避免弹幕过多时卡顿
+  # false: 处理所有弹幕（可能导致播放队列堆积）
+  flow_control_enabled: true
+
+  # 流量控制策略
+  # skip: 跳过模式 - 正在播放时直接丢弃新弹幕（推荐，体验最流畅）
+  # queue_limit: 队列限制模式 - 限制待处理队列大小
+  flow_control_strategy: skip
+
+  # 队列最大长度（仅 queue_limit 模式有效）
+  # 当队列达到此大小时，新弹幕会被丢弃
+  max_queue_size: 1
+
+# #####################################################################################
+# #############################日志配置################################################
+log:
+  log_format: "<green>{time:YYMMDD HH:mm:ss}</green>[DANMAKU][<light-blue>{extra[tag]}</light-blue>]-<level>{level}</level>-<light-green>{message}</light-green>"
+  log_format_file: "{time:YYYY-MM-DD HH:mm:ss} - DANMAKU - {name} - {level} - {extra[tag]} - {message}"
+  log_level: INFO
+  log_dir: tmp
+  log_file: "danmaku_server.log"
+  data_dir: data
+
+# TTS请求超时时间(秒)
+tts_timeout: 10
+# 使用完声音文件后删除文件
+delete_audio: true
+
+# TTS音频发送延迟配置
+tts_audio_send_delay: 0
+
+# #####################################################################################
+# #############################角色模型配置############################################
+
+prompt: |
+  你是一个直播间的AI助手，名叫小智。你的任务是与观众互动。
+  [核心特征]
+  - 回复简洁明快，每次回复控制在50字以内
+  - 语气活泼友好，适合直播间氛围
+  - 对观众的问题给予及时回应
+  [交互指南]
+  当观众：
+  - 打招呼 → 热情回应并简单介绍自己
+  - 提问题 → 简明扼要地回答
+  - 闲聊 → 幽默友好地互动
+  注意：
+  - 回复要快速、简短
+  - 保持积极正面的态度
+
+# 具体处理时选择的模块
+selected_module:
+  # LLM将根据配置名称对应的type调用实际的LLM适配器
+  LLM: ChatGLMLLM
+  # TTS将根据配置名称对应的type调用实际的TTS适配器
+  TTS: EdgeTTS
+
+# #####################################################################################
+# ################################LLM配置##############################################
+LLM:
+  ChatGLMLLM:
+    type: openai
+    # glm-4-flash 是免费的，但是还是需要注册填写api_key的
+    # 可在这里找到你的api key https://bigmodel.cn/usercenter/proj-mgmt/apikeys
+    model_name: glm-4-flash
+    url: https://open.bigmodel.cn/api/paas/v4/
+    api_key: dd1cc5e1b7434306b56c06167ed8f1bf.a5AFvozuvXROm8eS
+
+  # 更多LLM配置请参考原config.yaml
+
+# #####################################################################################
+# ################################TTS配置##############################################
+TTS:
+  EdgeTTS:
+    type: edge
+    voice: zh-CN-XiaoxiaoNeural
+    output_dir: tmp/
+
+  # 更多TTS配置请参考原config.yaml

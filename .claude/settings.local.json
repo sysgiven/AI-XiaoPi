@@ -12,7 +12,10 @@
       "Bash(python -m py_compile:*)",
       "Bash(python:*)",
       "Bash(ls:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(robocopy:*)",
+      "Bash(xcopy:*)",
+      "Bash(find:*)"
     ]
   }
 }
