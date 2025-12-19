@@ -149,29 +149,6 @@ python danmaku_app.py
 
 详细说明请参考 `DouyinBarrageGrab` 目录下的 README。
 
-## 📁 项目结构
-
-```
-XiaoPi/
-├── xiaozhi-esp32-server/
-│   └── main/
-│       └── xiaozhi-server/
-│           ├── danmaku_app.py              # 启动入口
-│           ├── danmaku_config.yaml         # 配置文件
-│           ├── start_danmaku.sh/bat        # 启动脚本
-│           └── danmaku_server/             # 核心模块
-│               ├── __init__.py
-│               ├── danmaku_service.py      # 主服务
-│               ├── danmaku_handler.py      # 弹幕处理器
-│               ├── device_manager.py       # 设备管理
-│               ├── douyin_collector.py     # 弹幕采集
-│               ├── douyin_proxy_collector.py  # 代理模式采集
-│               └── danmaku_ota_handler.py  # OTA更新处理
-├── DouyinBarrageGrab/                      # 弹幕抓取工具
-└── docs/                                   # 文档
-```
-
-
 ## 🔧 工作原理
 
 ```
