@@ -41,8 +41,10 @@ async def main():
     """主函数"""
     try:
         logger.info("=" * 60)
-        logger.info("抖音直播弹幕AI服务器")
-        logger.info("基于 xiaozhi-esp32-server 二次开发")
+        logger.info("小皮AI直播机器人 硬件+私有服务器解决方案 (开源版)")
+        logger.info("基于 xiaozhi-esp32 / xiaozhi-esp32-server 二次开发")
+        logger.info("github地址 https://github.com/sysgiven/AI-XiaoPi")
+        logger.info("商务合作 交流 请联系微信 px11360")
         logger.info("=" * 60)
 
         # 加载弹幕专用配置文件
