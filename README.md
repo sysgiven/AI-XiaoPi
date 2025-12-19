@@ -24,7 +24,7 @@
 > **适用场景：** 24小时无人直播、智能客服答疑、游戏主播辅助、娱乐整活。
 
 ## 🚀 快速体验 一键整合包
-网盘地址： https://pan.baidu.com/s/1hzq32hbKIyM-_igLyoHMgg?pwd=znv6 提取码: znv6
+Windows平台一键启动包 网盘地址： https://pan.baidu.com/s/1hzq32hbKIyM-_igLyoHMgg?pwd=znv6 提取码: znv6
 
 ## 📖 视频资料
 流程讲解(https://www.bilibili.com/video/BV1sDqEBQESd/?vd_source=12f6d76610175d37664858167b4e567a)
@@ -335,6 +335,7 @@ TTS:
 ---
 
 **如果这个项目对你有帮助，请给一个 ⭐️ Star！你的支持是我们更新的动力！**
+
 
 
 
