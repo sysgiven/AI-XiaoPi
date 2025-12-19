@@ -1,0 +1,14 @@
+# 用户自定义配置文件（弹幕服务最小配置）
+# 这是一个最小配置文件，用于弹幕服务
+# 完整配置请参考 configs/danmaku_config.yaml
+
+# 如果你使用智控台 API，可以配置这里
+# manager-api:
+#   url: "http://your-api-server.com"
+#   secret: "your-secret-key"
+
+# 弹幕服务使用 configs/danmaku_config.yaml 作为主配置
+# 这个文件只是为了满足系统初始化检查
+
+# 空配置（不使用智控台 API）
+{}
