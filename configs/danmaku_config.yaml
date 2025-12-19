@@ -100,7 +100,7 @@ LLM:
     # 可在这里找到你的api key https://bigmodel.cn/usercenter/proj-mgmt/apikeys
     model_name: glm-4-flash
     url: https://open.bigmodel.cn/api/paas/v4/
-    api_key: dd1cc5e1b7434306b56c06167ed8f1bf.a5AFvozuvXROm8eS
+    api_key: 
 
   # 更多LLM配置请参考原config.yaml
 

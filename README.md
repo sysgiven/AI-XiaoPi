@@ -93,7 +93,6 @@ cd XiaoPi
 
 2. **安装依赖**
 ```bash
-cd xiaozhi-esp32-server/main/xiaozhi-server
 pip install -r requirements.txt
 ```
 
@@ -126,17 +125,17 @@ TTS:
 
 **Linux/macOS:**
 ```bash
-./start_danmaku.sh
+./run_bot.sh
 ```
 
 **Windows:**
 ```bash
-start_danmaku.bat
+run_bot.bat
 ```
 
 或直接运行：
 ```bash
-python danmaku_app.py
+python run_bot.py
 ```
 
 ### 使用 DouyinBarrageGrab（推荐）
