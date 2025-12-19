@@ -1,4 +1,4 @@
-# 小皮AI直播机器人 硬件+私有服务器解决方案 (XiaoPi)
+# 小皮AI直播机器人 智能硬件+私有服务器解决方案 (XiaoPi)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -15,7 +15,7 @@
 - 📡 发送到ESP32等硬件设备进行播放
 - 🎯 支持串行化处理，避免弹幕堆积
 
-[!B站视频] (https://www.bilibili.com/video/BV1sDqEBQESd/?vd_source=12f6d76610175d37664858167b4e567a)
+[演示+代码流程] (https://www.bilibili.com/video/BV1sDqEBQESd/?vd_source=12f6d76610175d37664858167b4e567a)
 
 ## ✨ 核心功能
 
