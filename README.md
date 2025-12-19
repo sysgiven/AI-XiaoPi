@@ -15,6 +15,8 @@
 - 📡 发送到ESP32等硬件设备进行播放
 - 🎯 支持串行化处理，避免弹幕堆积
 
+[!B站视频] (https://www.bilibili.com/video/BV1sDqEBQESd/?vd_source=12f6d76610175d37664858167b4e567a)
+
 ## ✨ 核心功能
 
 - **多种弹幕采集模式**
