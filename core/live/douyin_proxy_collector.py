@@ -190,7 +190,7 @@ class DouyinProxyCollector:
                 try:
                     data = json.loads(message)
                     msg_type = data.get("Type", "unknown")
-                    if msg_type == MessageType.弹幕:
+                    if msg_type == MessageType.弹幕消息:
                         danmaku_count += 1
                         last_danmaku_time = time.time()
                         warned_no_danmaku = False  # 重置警告标志
