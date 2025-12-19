@@ -37,7 +37,7 @@
 | :--- | :--- | :--- |
 | 🧠 **LLM 大模型** | 智能大脑，处理弹幕并生成回复 | ✅ **OpenAI (GPT-3.5/4)**<br>✅ **ChatGLM (智谱 AI)**<br>✅ **DeepSeek (深度求索)**<br>✅ **Ollama (本地私有模型)**<br>✅ **FastGPT / Dify / Coze (知识库支持)**<br>✅ **Gemini / Xinference** |
 | 🗣️ **TTS 语音** | 将文字回复转换为真人语音 | ✅ **Edge TTS (微软免费，强烈推荐)**<br>✅ **阿里云 TTS**<br>✅ **GPT-SoVITS (克隆音色)**<br>✅ **豆包 / 火山引擎**<br>✅ **讯飞星火** |
-| 👂 **弹幕监听** | 实时获取直播间互动数据 | ✅ **抖音 (Douyin)** via DouyinBarrageGrab<br>🚧 **Bilibili** (开发中)<br>🚧 **快手/TikTok** (计划中) |
+| 👂 **弹幕监听** | 实时获取直播间互动数据 | ✅ **抖音 (Douyin)** via DouyinBarrageGrab<br>✅ **Bilibili** <br>✅ **快手/TikTok**  |
 | 🤖 **硬件控制** | 软硬结合，实体机器人动作交互 | ✅ **ESP32 舵机控制**<br>✅ **LCD 表情显示**<br>✅ **WS2812 氛围灯效** |
 
 ## ✨ 核心功能
@@ -335,6 +335,7 @@ TTS:
 ---
 
 **如果这个项目对你有帮助，请给一个 ⭐️ Star！你的支持是我们更新的动力！**
+
 
 
 
