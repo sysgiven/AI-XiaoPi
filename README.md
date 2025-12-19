@@ -34,6 +34,28 @@
 | 👂 **弹幕监听** | 实时获取直播间互动数据 | ✅ **抖音 (Douyin)** via DouyinBarrageGrab<br>🚧 **Bilibili** (开发中)<br>🚧 **快手/TikTok** (计划中) |
 | 🤖 **硬件控制** | 软硬结合，实体机器人动作交互 | ✅ **ESP32 舵机控制**<br>✅ **LCD 表情显示**<br>✅ **WS2812 氛围灯效** |
 
+## ✨ 核心功能
+
+- **多种弹幕采集模式**
+  - 模拟模式：用于开发测试
+  - 代理模式：通过 DouyinBarrageGrab 获取真实弹幕（推荐）
+  - 直连模式：直接连接（需自行实现）
+
+- **智能流量控制**
+  - 串行化处理：一次只处理一条弹幕
+  - 自动忽略中间弹幕：只响应最新的弹幕
+  - 防止音频堆积和播放混乱
+
+- **灵活的AI配置**
+  - 支持多种LLM提供商（OpenAI, ChatGLM, Gemini等）
+  - 支持多种TTS引擎（Edge TTS, 阿里云等）
+  - 可自定义AI角色和回复风格
+
+- **硬件设备支持**
+  - WebSocket连接管理
+  - 设备自动发现和心跳检测
+  - OTA固件更新接口
+
 ## 🛠 硬件清单 (BOM)
 
 如果你想体验“实体机器人”的乐趣，建议购买以下配件（成本约 ¥100-200）。
@@ -49,70 +71,101 @@
 
 ## 🚀 快速开始
 
-### 方式一：Docker 一键部署 (推荐)
+### 环境要求
 
-适合小白用户，无需配置复杂的 Python 环境。
+- Python 3.8+
+- (可选) 直播间
+- (可选) ESP32硬件设备
 
-1.  **克隆项目**
-    `
-    git clone https://github.com/sysgiven/AI-XiaoPi.git
-    cd AI-XiaoPi/xiaozhi-esp32-server/main/xiaozhi-server
-    `
+### 安装步骤
 
-2.  **修改配置**
-    复制 config_example.yaml 为 config.yaml，填入你的 API Key。
-    `
-    cp config_example.yaml config.yaml
-    # 编辑 config.yaml，填入你的 LLM 和 TTS 配置
-    `
+1. **克隆项目**
+```bash
+git clone <your-repo-url>
+cd XiaoPi
+```
 
-3.  **启动服务**
-    `
-    docker-compose up -d
-    `
+2. **安装依赖**
+```bash
+cd xiaozhi-esp32-server/main/xiaozhi-server
+pip install -r requirements.txt
+```
 
-### 方式二：源码部署 (开发者)
+3. **配置服务**
 
-1.  **环境准备**
-    确保安装 Python 3.10+。
-    `
-    cd xiaozhi-esp32-server/main/xiaozhi-server
-    pip install -r requirements.txt
-    `
+编辑 `danmaku_config.yaml` 文件：
 
-2.  **启动应用**
-    `
-    # Windows
-    start_danmaku.bat
-    
-    # Linux/Mac
-    sh start_danmaku.sh
-    `
+```yaml
+danmaku:
+  # 填写你的直播间ID（如果使用真实弹幕）
+  room_id: your_room_id
 
-## ⚙️ 配置指南 (config.yaml)
+  # 工作模式选择
+  use_mock: false      # 是否使用模拟数据
+  use_proxy: true      # 是否使用 DouyinBarrageGrab 代理
+  proxy_ws_url: "ws://127.0.0.1:8888"
 
-目前支持通过简单的配置文件切换不同模型。
-
-`yaml
-# 示例：使用 DeepSeek + 免费 EdgeTTS
-
-# 选择使用的模块
-selected_module:
-  LLM: OpenAI      # 使用 OpenAI 兼容协议连接 DeepSeek
-  TTS: EdgeTTS     # 使用微软免费语音
-
-# LLM 详细配置
+# 配置你的LLM（这里使用智谱GLM-4-Flash）
 LLM:
-  OpenAI:
-    base_url: "https://api.deepseek.com/v1"
-    api_key: "sk-xxxxxxxxxxxx"
-    model_name: "deepseek-chat"
+  ChatGLMLLM:
+    api_key: your_api_key_here
 
-# TTS 详细配置
+# 配置你的TTS（这里使用免费的Edge TTS）
 TTS:
   EdgeTTS:
-    voice: "zh-CN-XiaoxiaoNeural"  # 晓晓（甜美主要音色）
-`
+    voice: zh-CN-XiaoxiaoNeural
+```
+
+4. **启动服务**
+
+**Linux/macOS:**
+```bash
+./start_danmaku.sh
+```
+
+**Windows:**
+```bash
+start_danmaku.bat
+```
+
+或直接运行：
+```bash
+python danmaku_app.py
+```
+
+### 使用 DouyinBarrageGrab（推荐）
+
+如果要获取真实的弹幕，需要先启动 DouyinBarrageGrab：
+
+1. 进入 DouyinBarrageGrab 目录
+2. 运行弹幕抓取服务（默认端口 8888）
+3. 在浏览器中打开直播间并连接
+
+详细说明请参考 `DouyinBarrageGrab` 目录下的 README。
+
+## 📁 项目结构
+
+```
+XiaoPi/
+├── xiaozhi-esp32-server/
+│   └── main/
+│       └── xiaozhi-server/
+│           ├── danmaku_app.py              # 启动入口
+│           ├── danmaku_config.yaml         # 配置文件
+│           ├── start_danmaku.sh/bat        # 启动脚本
+│           └── danmaku_server/             # 核心模块
+│               ├── __init__.py
+│               ├── danmaku_service.py      # 主服务
+│               ├── danmaku_handler.py      # 弹幕处理器
+│               ├── device_manager.py       # 设备管理
+│               ├── douyin_collector.py     # 弹幕采集
+│               ├── douyin_proxy_collector.py  # 代理模式采集
+│               └── danmaku_ota_handler.py  # OTA更新处理
+├── DouyinBarrageGrab/                      # 弹幕抓取工具
+└── docs/                                   # 文档
+```
+
+
 ## 🔧 工作原理
 
 ```
@@ -156,6 +209,61 @@ TTS:
 ┌─────────────────────┐
 │ ESP32 硬件设备       │ 播放语音
 └─────────────────────┘
+```
+
+## 📝 配置说明
+
+### 弹幕流量控制
+
+在弹幕密集的直播间，建议启用流量控制：
+
+```yaml
+danmaku:
+  flow_control_enabled: true
+  flow_control_strategy: skip  # 推荐：跳过模式
+```
+
+- `skip`: 正在播放时直接丢弃新弹幕（推荐，体验最流畅）
+- `queue_limit`: 限制待处理队列大小
+
+### AI角色配置
+
+在 `danmaku_config.yaml` 中自定义AI角色：
+
+```yaml
+prompt: |
+  你是一个直播间的AI助手，名叫小皮。
+  回复简洁明快，每次回复控制在50字以内。
+  语气活泼友好，适合直播间氛围。
+```
+
+### LLM提供商
+
+支持多种LLM提供商，配置示例：
+
+```yaml
+selected_module:
+  LLM: ChatGLMLLM  # 或 OpenAILLM, GeminiLLM 等
+
+LLM:
+  ChatGLMLLM:
+    type: openai
+    model_name: glm-4-flash  # 免费模型
+    api_key: your_api_key
+```
+
+### TTS引擎
+
+支持多种TTS引擎，配置示例：
+
+```yaml
+selected_module:
+  TTS: EdgeTTS  # 或 AliyunTTS, DoubaoTTS 等
+
+TTS:
+  EdgeTTS:
+    type: edge
+    voice: zh-CN-XiaoxiaoNeural  # 中文女声
 ```
 
 ## 🐛 故障排除
@@ -223,4 +331,5 @@ TTS:
 ---
 
 **如果这个项目对你有帮助，请给一个 ⭐️ Star！你的支持是我们更新的动力！**
+
 
