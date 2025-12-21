@@ -272,14 +272,6 @@ TTS:
 2. 检查 WebSocket 地址配置
 3. 查看防火墙设置
 
-## 📚 文档
-
-- [架构说明](xiaozhi-esp32-server/main/xiaozhi-server/ARCHITECTURE.md) - 了解项目架构
-- [弹幕接入指南](xiaozhi-esp32-server/main/xiaozhi-server/DOUYIN_BARRAGE_SETUP.md) - 配置弹幕
-- [串行化处理方案](SERIALIZED_PROCESSING.md) - 了解弹幕处理机制
-- [Sentence ID 修复说明](SENTENCE_ID_FIX.md) - 音频播放问题修复
-
-
 ## 🔌 插件开发
 
 想要接入新的大模型？本项目采用插件化架构，添加新功能非常简单！
@@ -313,6 +305,7 @@ TTS:
 ---
 
 **如果这个项目对你有帮助，请给一个 ⭐️ Star！你的支持是我们更新的动力！**
+
 
 
 
