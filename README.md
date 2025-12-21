@@ -7,7 +7,10 @@
 ![Docker](https://img.shields.io/badge/docker-supported-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20Mac-lightgrey)
 
-**全球首个开源“硬件+软件”一体化 AI 直播机器人解决方案**
+**全球首个开源"硬件+软件"一体化 AI 直播机器人解决方案**
+
+> 💼 **寻找企业级解决方案？** 查看 [商用专业版](README_COMMERCIAL.md)
+> 稳定性提升 10 倍 | 响应速度 < 1.5 秒 | 7x24 技术支持 | 30 天免费试用
 
 [快速开始](#-快速开始) | [硬件清单](#-硬件清单-bom) | [核心特性](#-核心特性) | [加入社区](#-联系与交流)
 
