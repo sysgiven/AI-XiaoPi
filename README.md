@@ -29,7 +29,9 @@ Windows平台一键启动包 网盘地址：https://pan.baidu.com/s/1p9SkXk7atcD
 ## 📖 视频资料
 
 
-https://github.com/user-attachments/assets/c4e71634-1af6-4d02-bc14-5060709a5fae
+
+https://github.com/user-attachments/assets/825d8d46-3ee6-41b7-a519-6d31d21fadd9
+
 
 
 直播间测试 https://www.bilibili.com/video/BV1q9BEBkEei/?vd_source=12f6d76610175d37664858167b4e567a
@@ -310,6 +312,7 @@ TTS:
 ---
 
 **如果这个项目对你有帮助，请给一个 ⭐️ Star！你的支持是我们更新的动力！**
+
 
 
 
