@@ -41,7 +41,8 @@ https://github.com/user-attachments/assets/825d8d46-3ee6-41b7-a519-6d31d21fadd9
 
 流程讲解 https://www.bilibili.com/video/BV1sDqEBQESd/?vd_source=12f6d76610175d37664858167b4e567a
 
-性价比方案，企业级中控台+安卓设备 https://www.bilibili.com/video/BV1JrvDBcEyq/?vd_source=12f6d76610175d37664858167b4e567a
+也可以不用单独的硬件终端
+性价比方案，WEB中控台+安卓设备 https://www.bilibili.com/video/BV1JrvDBcEyq/?vd_source=12f6d76610175d37664858167b4e567a
 
 ## ✨ 核心特性
 
@@ -317,6 +318,7 @@ TTS:
 ---
 
 **如果这个项目对你有帮助，请给一个 ⭐️ Star！你的支持是我们更新的动力！**
+
 
 
 
